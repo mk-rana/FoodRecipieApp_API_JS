@@ -83,6 +83,7 @@ body{
     font-family: inherit;
     outline: 0;
     border: 1px solid var(--tenne-tawny);
+    border-right: #fff;
     color: var(--tenne-tawny);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
@@ -90,6 +91,18 @@ body{
 .search-control::placeholder{
     color: var(--tenne-tawny);
 }
+
+#voice-search-btn {
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: 0;
+    border: 1px solid var(--tenne-tawny);
+    border-left: #fff;
+    background: #fff;
+    color: var(--tenne-tawny);
+}
+
 .search-btn{
     width: 55px;
     height: 55px;

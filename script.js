@@ -4,6 +4,37 @@ const mealList = document.getElementById('meal');
 const mealDetailsContent = document.querySelector('.meal-details-content');
 const recipeCloseBtn = document.getElementById('recipe-close-btn');
 
+//For voice search
+function startDictation() {
+
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.lang = "en-US";
+      recognition.start();
+
+      recognition.onresult = function(event) {
+        var saidText = "";
+        for (var i = event.resultIndex; i < event.results.length; i++) {
+          if (event.results[i].isFinal) {
+            saidText = event.results[i][0].transcript;
+          } else {
+            saidText += event.results[i][0].transcript;
+          }
+        }
+
+        // Update Textbox value and make a click event
+        document.getElementById('search-input').value = saidText;
+        document.getElementById("search-btn").click();
+      };
+    }
+}
+
+
 //On typing ingredient and pressing entrer
 input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
